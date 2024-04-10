@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload images</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./assets/dropzone/dropzone/dist/dropzone-min.js"></script>
+  <link href="./assets/dropzone/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+  <style>
+    .dz-progress {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dropzone" id="my-dropzone">
+    <div class="dz-message" data-dz-message>
+      <span>Upload images</span>
+    </div>
+  </div>
+
+  <button type="submit" id="button" class="btn btn-primary">Submit</button>
+  <script>
+    var myDropzone = $("#my-dropzone");
+    myDropzone.dropzone({
+      autoProcessQueue: false,
+      url: "/abc",
+      method: "POST",
+    });
+
+    $("#button").click(function (e) {
+      e.preventDefault();
+      Dropzone.forElement("#my-dropzone").options.autoProcessQueue = true;
+      Dropzone.forElement("#my-dropzone").processQueue();
+    });
+  </script>
+</body>
+
+</html>

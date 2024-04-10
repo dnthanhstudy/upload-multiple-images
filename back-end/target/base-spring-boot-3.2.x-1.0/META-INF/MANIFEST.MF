@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: thanh
+Build-Jdk: version 21.0.1
+Implementation-Title: base-spring-boot-3.2.x
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.dnthanh.store
+Main-Class: ${start-class}
+
